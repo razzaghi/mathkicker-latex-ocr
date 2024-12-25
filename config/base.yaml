@@ -5,7 +5,7 @@ model:
   type: VisionEncoderDecoderModel
   pretrained_model_name_or_path: facebook/nougat-base
   max_length: 800
-  image_size: [224, 560]  # height, width
+  image_size: [200, 3000]  # height, width
   quantization_type: ''
   model_path: ~
   mixed_precision: "fp16" # "["no", "fp16", "bf16]
