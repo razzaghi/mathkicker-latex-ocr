@@ -211,6 +211,7 @@ class DonutExperiment(BaseExperiment):
         pin_memory = data_loader_args.get("shuffle", False)
 
         collate_fn_args = data_loader_args.get("collate_fn")
+        print(f"=================== {collate_fn_args.get("type")} ===================")
         if collate_fn_args.get("type") is None:
             collate_fn = None
         else:
