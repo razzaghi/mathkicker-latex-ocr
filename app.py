@@ -12,14 +12,18 @@ app = Flask(__name__)
 # Enable CORS for the app
 CORS(app)  # This enables CORS for all routes
 
-# Function to run Nougat LaTeX model
-def run_nougat_latex(img_path, device_type="cpu"):
-    device = torch.device(device_type)
+device = torch.device("cpu")
 
-    # Initialize model and processor
-    model = VisionEncoderDecoderModel.from_pretrained("Norm/nougat-latex-base").to(device)
-    tokenizer = NougatTokenizerFast.from_pretrained("Norm/nougat-latex-base")
-    latex_processor = NougatLaTexProcessor.from_pretrained("Norm/nougat-latex-base")
+# Initialize model and processor
+model = VisionEncoderDecoderModel.from_pretrained("Norm/nougat-latex-base").to(device)
+tokenizer = NougatTokenizerFast.from_pretrained("Norm/nougat-latex-base")
+latex_processor = NougatLaTexProcessor.from_pretrained("Norm/nougat-latex-base")
+
+
+# Function to run Nougat LaTeX model
+def run_nougat_latex(img_path):
+
+    print(img_path)
 
     # Load image
     image = Image.open(img_path)
