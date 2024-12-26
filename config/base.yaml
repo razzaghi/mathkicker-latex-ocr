@@ -35,8 +35,8 @@ trainer:
     warmup_steps: 500
   epochs: 20
   # tensorboard configuration
-  save_dir: /home/nougat/workspace/nougat_latex
-  tensorboard_dir: /home/nougat/workspace/nougat_latex/tensorboard
+  save_dir: /home/ubuntu/latex/mathkicker_nougat_latex
+  tensorboard_dir: /home/ubuntu/latex/tensorboard
   # display configuration
   save_epoch_freq: 1
   save_step_freq: 1000
@@ -46,8 +46,8 @@ datasets:
     dataset:
       type: NougatDataset
       data_root:
-        - /open-dataset/math_latex/formulas/train
-      equations: /open-dataset/math_latex/formulas/math.txt
+        - /home/ubuntu/latex/mathkicker_dataset/train
+      equations: /home/ubuntu/latex/latex_expressions.txt
     num_workers: 10
     batch_size: 32
     shuffle: true
@@ -57,6 +57,6 @@ datasets:
   eval:
     dataset:
       data_root:
-      - /open-dataset/math_latex/formulas/val
-      equations: /open-dataset/math_latex/formulas/math.txt
+      - /home/ubuntu/latex/mathkicker_dataset/val
+      equations: /home/ubuntu/latex/latex_expressions.txt
     shuffle: false
