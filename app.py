@@ -5,10 +5,8 @@ from transformers import VisionEncoderDecoderModel
 from transformers.models.nougat import NougatTokenizerFast
 from nougat_latex.util import process_raw_latex_code
 from nougat_latex import NougatLaTexProcessor
-from flask_asgi import ASGIApp  # This will allow Flask to run on ASGI
 
 app = Flask(__name__)
-asgi_app = ASGIApp(app)  # Wrap Flask app with ASGI
 
 # Function to run Nougat LaTeX model
 def run_nougat_latex(img_path, device="cpu"):
@@ -70,7 +68,9 @@ def predict():
         return jsonify({'error': str(e)}), 500
 
 
-# Run Uvicorn with Flask-ASGI compatibility
+# Run with Hypercorn
 if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(asgi_app, host="0.0.0.0", port=5000)
+    import hypercorn.asyncio
+    from hypercorn.config import Config
+    config = Config()
+    hypercorn.asyncio.run(app, config)
