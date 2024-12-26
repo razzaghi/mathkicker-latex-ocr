@@ -44,7 +44,7 @@ def run_nougat_latex(img_path, device="cpu"):
 
     return sequence
 
-@app.route('/predict', methods=['POST'])
+@app.route('/', methods=['POST'])
 def predict():
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'}), 400
