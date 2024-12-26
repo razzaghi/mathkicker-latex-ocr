@@ -46,6 +46,8 @@ def run_nougat_latex(img_path, device="cpu"):
     sequence = sequence.replace(tokenizer.eos_token, "").replace(tokenizer.pad_token, "").replace(tokenizer.bos_token, "")
     sequence = process_raw_latex_code(sequence)
 
+    print(sequence)
+    
     return sequence
 
 @app.route('/predict', methods=['POST'])
