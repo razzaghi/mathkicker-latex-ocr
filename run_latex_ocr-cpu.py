@@ -13,7 +13,7 @@ from nougat_latex import NougatLaTexProcessor
 def parse_option():
     parser = argparse.ArgumentParser(prog="nougat inference config", description="model archiver")
     parser.add_argument("--pretrained_model_name_or_path", default="Norm/nougat-latex-base")
-    parser.add_argument("--img_path", help="path to latex image segment", required=True)
+    parser.add_argument("--img_path", help="path to latex image segment", default='/workspace/mathkicker-latex-ocr/uploaded_image.png')
     parser.add_argument("--device", default="cpu")
     return parser.parse_args()
 
