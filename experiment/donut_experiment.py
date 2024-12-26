@@ -176,6 +176,9 @@ class DonutExperiment(BaseExperiment):
                 self.train_data_loader = self._get_data_loader_from_dataset(self.train_dataset,
                                                                             train_data_loader_args,
                                                                             phase='train')
+                print("======================================")
+                print("success init train data loader len:{} ".format(len(self.train_data_loader)))
+                print("======================================")
                 logger.info("success init train data loader len:{} ".format(len(self.train_data_loader)))
 
             eval_data_loader_args = dataset_args.get("eval")
