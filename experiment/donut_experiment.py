@@ -173,6 +173,7 @@ class DonutExperiment(BaseExperiment):
                     train_data_loader_args['dataset'].update({
                         "cache_dir": config['trainer']['save_dir']})
                 self.train_dataset = get_dataset(train_data_loader_args['dataset'])
+                print(f"====================== {self.train_dataset} ================")
                 self.train_data_loader = self._get_data_loader_from_dataset(self.train_dataset,
                                                                             train_data_loader_args,
                                                                             phase='train')
@@ -219,6 +220,7 @@ class DonutExperiment(BaseExperiment):
         if collate_fn_args.get("type") is None:
             collate_fn = None
         else:
+            print("============= No Type ===========")
             collate_fn_type = collate_fn_args.get("type")
             collate_fn = getattr(mydatasets, collate_fn_type)(batch_size=batch_size, processor=self.processor,
                                                               **collate_fn_args)
@@ -228,6 +230,7 @@ class DonutExperiment(BaseExperiment):
                                  pin_memory=pin_memory,
                                  collate_fn=collate_fn,
                                  batch_size=batch_size)
+        print("=========== Data Loaded =============")
         logger.info("use data loader with batch_size:{},num_workers:{}".format(batch_size, num_workers))
 
         return data_loader
