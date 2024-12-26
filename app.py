@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # Import CORS
 import torch
 from PIL import Image
 from transformers import VisionEncoderDecoderModel
@@ -7,6 +8,9 @@ from nougat_latex.util import process_raw_latex_code
 from nougat_latex import NougatLaTexProcessor
 
 app = Flask(__name__)
+
+# Enable CORS for the app
+CORS(app)  # This enables CORS for all routes
 
 # Function to run Nougat LaTeX model
 def run_nougat_latex(img_path, device="cpu"):

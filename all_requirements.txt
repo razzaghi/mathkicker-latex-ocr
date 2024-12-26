@@ -9,3 +9,4 @@ setproctitle
 anyconfig
 hypercorn
 flask
+flask-cors
