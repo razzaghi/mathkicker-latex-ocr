@@ -2,23 +2,9 @@
 
 <img src="./asset/img2latex.jpeg" width="600">
 
-Nougat-LaTeX-based is fine-tuned from [facebook/nougat-base](https://huggingface.co/facebook/nougat-base) with [im2latex-100k](https://zenodo.org/record/56198#.V2px0jXT6eA) to boost its proficiency in generating LaTeX code from images. 
-Since the initial encoder input image size of nougat was unsuitable for equation image segments, leading to potential rescaling artifacts that degrades the generation quality of LaTeX code. To address this, Nougat-LaTeX-based adjusts the input resolution and uses an adaptive padding approach to ensure that equation image segments in the wild are resized to closely match the resolution of the training data.
-Download the model [here](https://huggingface.co/Norm/nougat-latex-base) 👈🏻.
+Mathkicker-Nougat-LaTeX-based is fine-tuned from [facebook/nougat-base](https://huggingface.co/facebook/nougat-base) with [im2latex-100k] and a custom dataset to boost its proficiency in generating LaTeX code from images. 
 
 
-## Evaluation
-Evaluated on an image-equation pair dataset collected from Wikipedia, arXiv, and im2latex-100k, curated by [lukas-blecher](https://github.com/lukas-blecher/LaTeX-OCR#data)
-
-|model| token_acc ↑ | normed edit distance ↓ |
-| --- | --- | --- |
-|pix2tex| 0.5346 | 0.10312
-|pix2tex*|0.60|0.10|
-|nougat-latex-based| **0.623850** | **0.06180** |
-
-pix2tex is a ResNet + ViT + Text Decoder architecture introduced in [LaTeX-OCR](https://github.com/lukas-blecher/LaTeX-OCR).
-
-**pix2tex***: reported from [LaTeX-OCR](https://github.com/lukas-blecher/LaTeX-OCR);  **pix2tex**: my evaluation with the released [checkpoint](https://github.com/lukas-blecher/LaTeX-OCR/releases/tag/v0.0.1) ; **nougat-latex-based**: evaluated on results generated with beam-search strategy. 
 
 ## Uses
 ### fine-tune on your customized dataset

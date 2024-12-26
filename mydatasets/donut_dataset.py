@@ -56,6 +56,7 @@ class NougatDataset(Dataset):
         self.phase = phase
         self.images = []
 
+        
         all_images = [path for images in data_root for path in glob.glob(join(images, '*.png'))]
         for img in all_images:
             width, height = imagesize.get(img)
