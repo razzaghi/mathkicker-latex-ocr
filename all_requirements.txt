@@ -9,4 +9,3 @@ setproctitle
 anyconfig
 uvicorn
 flask
-flask-asgi
