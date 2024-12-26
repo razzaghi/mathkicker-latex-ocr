@@ -70,6 +70,7 @@ def predict():
         img_path = './uploaded_image.png'  # You can choose another path or handle the file differently
         file.save(img_path)
 
+        print(f"============== {img_path} ==============")
         # Run the Nougat LaTeX model inference
         result = run_nougat_latex(img_path)
 
